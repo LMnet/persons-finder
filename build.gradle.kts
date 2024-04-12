@@ -19,9 +19,17 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("com.h2database:h2:2.1.212")
+	implementation("org.postgresql:postgresql:42.7.3")
+	implementation("org.hibernate:hibernate-spatial")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	implementation("jakarta.validation:jakarta.validation-api")
+	implementation("org.springframework.boot:spring-boot-starter-validation")
+	implementation("org.flywaydb:flyway-core")
+	implementation("org.springframework.boot:spring-boot-starter-jdbc")
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+
 }
 
 tasks.withType<KotlinCompile> {

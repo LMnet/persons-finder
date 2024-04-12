@@ -25,3 +25,22 @@ Steps:
 For any questions, please reach out on: leo@getsquareone.app
 
 
+# Implementation notes
+
+* Instead of H2, I used PostgreSQL with the excellent PostGIS extension. I believe that using the same database as in production could save from a lot of surprises. For this kind of app, PostgreSQL + PostGIS is the de facto standard solution. Also, I used docker-compose to simplify local testing.
+* For DB migrations, I used Flyway.
+* I changed some APIs, interfaces, and some naming.
+* Error handling is somewhat half-baked. Obvious cases are handled, but errors are not consistent in terms of format.
+* I haven't implemented tests. I have manually tested happy-path scenarios, as well as invalid cases. For a real production app, tests are required. For this kind of app, I would write mostly unit tests, plus a few testcontainers tests for the database.
+
+
+## How to start the app
+
+Before starting an application containers from the `docker-compose.yml` should be started:
+```
+docker-compose up -d
+```
+After that you can run an app from gradle:
+```
+./gradlew bootRun
+```

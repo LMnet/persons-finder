@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgis/postgis:13-3.1-alpine
+    container_name: postgis_container
+    environment:
+      POSTGRES_DB: persons_finder_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+    ports:
+      - "35432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+

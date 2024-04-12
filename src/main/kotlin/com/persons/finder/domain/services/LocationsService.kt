@@ -4,6 +4,7 @@ import com.persons.finder.data.Location
 
 interface LocationsService {
     fun addLocation(location: Location)
-    fun removeLocation(locationReferenceId: Long)
-    fun findAround(latitude: Double, longitude: Double, radiusInKm: Double) : List<Location>
+    fun findAround(referenceId: Long, radiusInKm: Double) : List<LocationWithDistance>
+
+    data class LocationWithDistance(val location: Location, val distanceInKm: Double)
 }
